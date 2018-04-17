@@ -21,8 +21,40 @@ CREATE TABLE Team (
 	kill SMALLINT,
 	assist SMALLINT,
 	income SMALLINT,
-	FOREIGN KEY (datePlayed) REFERENCES Matched(datePlayed),
+	FOREIGN KEY (datePlayed) REFERENCES Matches(datePlayed),
 	CHECK (kill >= 0),
 	CHECK (assist >= 0),
 	CHECK (income >= 0)
+);
+
+CREATE TABLE Champions (
+	name ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina'),
+	attackType ENUM('Range', 'Melee'),
+	role ENUM('Top', 'Jungle', 'Mid', 'Adc', 'Support'),
+	PRIMARY KEY name
+);
+
+CREATE TABLE Score (
+	name ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina'),
+	kill SMALLINT,
+	assist SMALLINT,
+	income SMALLINT, 
+	FOREIGN KEY (name) REFERENCES Champions(name),
+	CHECK (kill >= 0),
+	CHECK (assist >= 0),
+	CHECK (income >= 0)
+);
+
+CREATE TABLE Statistics (
+	name ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina'),
+	creepScore SMALLINT,
+	income SMALLINT, 
+	rating ENUM('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F+', 'F', 'F-'),
+	damageDealt SMALLINT,
+	damageTaken SMALLINT,
+	FOREIGN KEY (name) REFERENCES Champions(name),
+	CHECK (creepScore >= 0),
+	CHECK (income >= 0),
+	CHECK (damageDealt >= 0),
+	CHECK (damageTaken >= 0)
 );

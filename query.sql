@@ -1,7 +1,10 @@
-SELECT ((individualKill + individualAssist) / individualDeath) AS "KDA"
+(SELECT (individualKill + individualAssist) / individualDeath
 FROM SCORE
-WHERE individualDeath != 0
+WHERE individualDeath != 0)
 UNION
-SELECT playerName, (individualKill + individualAssist) AS "KDA"
+(SELECT individualKill + individualAssist
 FROM SCORE
-WHERE individualDeath == 0;
+WHERE individualDeath = 0);
+
+SELECT datePlayed, 
+FROM MATCHES NATURAL JOIN SCORE

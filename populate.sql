@@ -22,12 +22,12 @@ CREATE TABLE Players (
 );
 
 CREATE TABLE Matches (
-	datePlayed TIMESTAMP NOT NULL,
-	matchLength TIME NOT NULL,
-	modes ENUM('Summoner\'s Rift', 'Twisted Treeline', 'Howling Abyss', 'Acension', 'Doom Bots', 'Legend of the Poro King', 'Ultra Rapid Fire', 'Hexakill', 'Nemesis Draft', 'One For All'),
-	PRIMARY KEY (datePlayed),
-	CHECK (datePlayed >= CURRENT_DATE()),
-	CHECK (matchLength > 0)
+    datePlayed TIMESTAMP NOT NULL,
+    matchLength TIME NOT NULL,
+    modes ENUM('Summoner\'s Rift', 'Twisted Treeline', 'Howling Abyss', 'Acension', 'Doom Bots', 'Legend of the Poro King', 'Ultra Rapid Fire', 'Hexakill', 'Nemesis Draft', 'One For All'),
+    PRIMARY KEY (datePlayed),
+    CHECK (datePlayed >= CURRENT_DATE()),
+    CHECK (matchLength > 0)
 );
 
 CREATE TABLE Team (

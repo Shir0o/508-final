@@ -10,24 +10,24 @@
       </head>
 
       <body>
+        <header class="header">
+          <div class="logo">
+            <img class="logo-image" src="images/logo_final.jpg" alt="Logo image">
+          </div>
+        </header>
         <div class="container">
-          <header class="header">
-            <div class="logo">
-              <img class="logo-image" src="images/logo_final.jpg" alt="Logo image">
-            </div>
-          </header>
-            <div class="body">
+            <div class="username">
                   <form action="userprofile.php" method="post">
                       Enter your Username: <input name="name" type="text">
                       <input type="submit">
                   </form>
+                
             </div>
-            <footer class="footer">
-              <p>Copyright © 2018 Sudhansu Shrestha and Tony Wang</p>
-            </footer>
         </div>
 
-
+        <footer class="footer">
+          <p>Copyright © 2018 Sudhansu Shrestha and Tony Wang</p>
+        </footer>
       </body>
 
 </html>

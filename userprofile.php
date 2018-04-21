@@ -11,10 +11,11 @@
 
       <body>
           <div class="container2">
+            <div class="header2">
             <header>
               <h1> User-Profile </h1>
             </header>
-
+          </div>
             <div class="banner">
               <h2> This banner will show user's most played champs </h2>
             </div>
@@ -27,9 +28,9 @@
             ?>
           </p>
           </div>
-            <footer class="footer">
-              <p>Copyright © 2018 Sudhansu Shrestha and Tony Wang</p>
-            </footer>
+          <footer class="footer">
+            <p>Copyright © 2018 Sudhansu Shrestha and Tony Wang</p>
+          </footer>
       </body>
 
 </html>

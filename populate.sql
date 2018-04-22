@@ -52,14 +52,13 @@ CREATE TABLE Statistics (
 	championName ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina', 'Lee sin', 'Zed', 'Ezreal', 'Thresh'),
 	datePlayed TIMESTAMP NOT NULL,
     creepScore SMALLINT,
-	income INT,
 	rating ENUM('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F+', 'F', 'F-'),
 	damageDealt INT,
 	damageTaken INT,
     individualKill SMALLINT,
     individualDeath SMALLINT,
 	individualAssist SMALLINT,
-	invididualIncome SMALLINT, 
+	individualIncome SMALLINT, 
     PRIMARY KEY (datePlayed),
 	FOREIGN KEY (championName) REFERENCES Champions(championName),
     FOREIGN KEY (datePlayed) REFERENCES Matches(datePlayed),
@@ -69,7 +68,6 @@ CREATE TABLE Statistics (
 	CHECK (individualAssist >= 0),
 	CHECK (invididualIncome >= 0),
 	CHECK (creepScore >= 0),
-	CHECK (income >= 0),
 	CHECK (damageDealt >= 0),
 	CHECK (damageTaken >= 0)
 );

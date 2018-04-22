@@ -75,14 +75,45 @@ FROM PLAY
 WHERE id != teamWon;
 
 # List all the games with a specific champion
-SELECT *
-FROM COMPOSE;
+SELECT championName, datePlayed
+FROM COMPOSE NATURAL JOIN PLAY
+WHERE championName = 'Riven';
 
 # List all the games played on a specific game mode
-# Is the player performing consistently on a given time period?
-# What is a player's team participation/coordination?
-# What is a player's preferred play style (aggressive, defensive, in the middle)?
+SELECT *
+FROM MATCHES
+WHERE modes = 'Summoner\'s Rift';
+
+# What is a player's damage dealt participation?
+SELECT playerName, player_stat.damageDealt - avg_participation.avgDmgDealt AS 'Damage dealt compared with average'
+FROM TEAM NATURAL JOIN (SELECT * 
+						FROM COMPOSE NATURAL JOIN (SELECT * 
+												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+
+# What is a player's damage taken participation?
+SELECT playerName, player_stat.damageTaken - avg_participation.avgDmgTaken AS 'Damage taken compared with average'
+FROM TEAM NATURAL JOIN (SELECT * 
+						FROM COMPOSE NATURAL JOIN (SELECT * 
+												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+
+# What is a player's individual income participation?
+SELECT playerName, player_stat.individualIncome - avg_participation.avgIndividualIncome AS 'Individual income compared with average'
+FROM TEAM NATURAL JOIN (SELECT * 
+						FROM COMPOSE NATURAL JOIN (SELECT * 
+												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+
+# What is a player's preferred role?
+SELECT playerName, positions, COUNT(positions) AS 'Preferred role count'
+FROM COMPOSE
+GROUP BY playerName, positions;
+
 # What is a player's preferred role in the team (protect, control, support, deal damage, take damage, assassinate, ...)?
+SELECT playerName, positions, MAX(preferredRoleCount) AS 'Maximum preferred role count'
+FROM (SELECT playerName, positions, COUNT(positions) AS 'preferredRoleCount'
+	  FROM COMPOSE
+	  GROUP BY playerName, positions) prefer_role
+GROUP BY playerName, positions;
+
 # What is a player's gold income in a match?
 # What is a player's statistic compared with another player's (better/worst parts)?
 # What is a player’s game rating in a match?

@@ -89,9 +89,11 @@ CREATE TABLE Compose (
 CREATE TABLE Play (
     id INT NOT NULL,
     datePlayed TIMESTAMP NOT NULL,
+    teamWon INT NOT NULL,
     PRIMARY KEY (datePlayed),
     FOREIGN KEY (id) REFERENCES Team(id),
     FOREIGN KEY (datePlayed) REFERENCES Matches(datePlayed),
+    FOREIGN KEY (teamWon) REFERENCES Team(id),
 	CHECK (datePlayed >= CURRENT_DATE()),
     CHECK (id >= 0)
 );

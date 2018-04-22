@@ -34,18 +34,17 @@ CREATE TABLE Team (
 	id INT NOT NULL,
 	teamKill SMALLINT,
 	teamAssist SMALLINT,
-	teamIncome SMALLINT,
+	teamIncome INT,
     PRIMARY KEY (id),
 	CHECK (id >= 0),
 	CHECK (teamKill >= 0),
-	CHECK (assist >= 0),
-	CHECK (income >= 0)
+	CHECK (teamAssist >= 0),
+	CHECK (teamIncome >= 0)
 );
 
 CREATE TABLE Champions (
 	championName ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina'),
 	attackType ENUM('Range', 'Melee'),
-	role ENUM('Top', 'Jungle', 'Mid', 'Adc', 'Support'),
 	PRIMARY KEY (championName)
 );
 
@@ -53,14 +52,15 @@ CREATE TABLE Statistics (
 	championName ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina', 'Lee sin', 'Zed', 'Ezreal', 'Thresh'),
 	datePlayed TIMESTAMP NOT NULL,
     creepScore SMALLINT,
-	income SMALLINT,
+	income INT,
 	rating ENUM('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F+', 'F', 'F-'),
-	damageDealt SMALLINT,
-	damageTaken SMALLINT,
+	damageDealt INT,
+	damageTaken INT,
     individualKill SMALLINT,
     individualDeath SMALLINT,
 	individualAssist SMALLINT,
 	invididualIncome SMALLINT, 
+    PRIMARY KEY (datePlayed),
 	FOREIGN KEY (championName) REFERENCES Champions(championName),
     FOREIGN KEY (datePlayed) REFERENCES Matches(datePlayed),
 	CHECK (datePlayed >= CURRENT_DATE()),

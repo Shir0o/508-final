@@ -79,6 +79,7 @@ CREATE TABLE Compose (
     id INT NOT NULL,
     championName ENUM('Riven', 'Janna', 'Fiora', 'Irelia', 'Ahri', 'Akali', 'Ashe', 'Jinx', 'Karma', 'Katarina'),
 	positions ENUM('Top', 'Jungle', 'Mid', 'Adc', 'Support'),
+    PRIMARY KEY (playerName),
     FOREIGN KEY (playerName) REFERENCES Players(playerName),
     FOREIGN KEY (id) REFERENCES Team(id),
 	FOREIGN KEY (championName) REFERENCES Champions(championName),
@@ -88,6 +89,7 @@ CREATE TABLE Compose (
 CREATE TABLE Play (
     id INT NOT NULL,
     datePlayed TIMESTAMP NOT NULL,
+    PRIMARY KEY (datePlayed),
     FOREIGN KEY (id) REFERENCES Team(id),
     FOREIGN KEY (datePlayed) REFERENCES Matches(datePlayed),
 	CHECK (datePlayed >= CURRENT_DATE()),

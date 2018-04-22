@@ -1,18 +1,18 @@
 # What is the KDA of a player in a match?
-(SELECT (individualKill + individualAssist) / individualDeath AS 'KDA'
+(SELECT playerName, (individualKill + individualAssist) / individualDeath AS 'KDA'
 FROM (SELECT playerName, datePlayed, championName, individualKill, individualAssist, individualDeath 
 	  FROM COMPOSE NATURAL JOIN (SELECT datePlayed, id, championName, individualKill, individualAssist, individualDeath 
 								 FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat
 WHERE individualDeath != 0)
 UNION
-(SELECT individualKill + individualAssist AS 'KDA'
+(SELECT playerName, individualKill + individualAssist AS 'KDA'
 FROM (SELECT playerName, datePlayed, championName, individualKill, individualAssist, individualDeath 
 	  FROM COMPOSE NATURAL JOIN (SELECT datePlayed, id, championName, individualKill, individualAssist, individualDeath 
 								 FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat
 WHERE individualDeath = 0);
                            
 # What is a player’s overall win rate with a champion?
-SELECT matchWon / matchPlayed
+SELECT playerName, matchWon / matchPlayed AS 'Win rate'
 FROM PLAYERS;
 
 # What is a player’s overall KDA with a champion?

@@ -85,22 +85,16 @@ FROM MATCHES
 WHERE modes = 'Summoner\'s Rift';
 
 # What is a player's damage dealt participation?
-SELECT playerName, player_stat.damageDealt - avg_participation.avgDmgDealt AS 'Damage dealt compared with average'
-FROM TEAM NATURAL JOIN (SELECT * 
-						FROM COMPOSE NATURAL JOIN (SELECT * 
-												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+SELECT playerName, info.damageDealt - avg_participation.avgDmgDealt AS 'Damage dealt compared with average'
+FROM info, avg_participation;
 
 # What is a player's damage taken participation?
-SELECT playerName, player_stat.damageTaken - avg_participation.avgDmgTaken AS 'Damage taken compared with average'
-FROM TEAM NATURAL JOIN (SELECT * 
-						FROM COMPOSE NATURAL JOIN (SELECT * 
-												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+SELECT playerName, info.damageTaken - avg_participation.avgDmgTaken AS 'Damage taken compared with average'
+FROM info, avg_participation;
 
 # What is a player's individual income participation?
-SELECT playerName, player_stat.individualIncome - avg_participation.avgIndividualIncome AS 'Individual income compared with average'
-FROM TEAM NATURAL JOIN (SELECT * 
-						FROM COMPOSE NATURAL JOIN (SELECT * 
-												   FROM STATISTICS NATURAL JOIN PLAY) game_stat) player_stat, avg_participation;
+SELECT playerName, info.individualIncome - avg_participation.avgIndividualIncome AS 'Individual income compared with average'
+FROM info, avg_participation;
 
 # What is a player's preferred role?
 SELECT playerName, positions, COUNT(positions) AS 'Preferred role count'
@@ -115,5 +109,14 @@ FROM (SELECT playerName, positions, COUNT(positions) AS 'preferredRoleCount'
 GROUP BY playerName, positions;
 
 # What is a player's gold income in a match?
-# What is a player's statistic compared with another player's (better/worst parts)?
+SELECT playerName, datePlayed, individualIncome
+FROM info;
+
+# What is a player's creep score compared with other players?
+SELECT playerName, info.creepScore - avg_participation.avgCreepScore AS 'Individual creep score compared with average'
+FROM info, avg_participation;
+
 # What is a player’s game rating in a match?
+SELECT playerName, datePlayed, rating
+FROM info
+WHERE playerName = 'Julien';

@@ -29,10 +29,8 @@
       session_start();
       $username = $_SESSION["name"];
 
-      $query = "SELECT id, championName
-      FROM compose
-      WHERE id = 1
-      ORDER BY id";
+      $query = "SELECT teamWon, datePlayed
+      FROM PLAY;";
 
 
 
@@ -40,16 +38,16 @@
 
 
       if ($response){
-        echo 'Your team composition';
+        echo 'Games you Won!';
         echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>GAME ID</b></td>
-        <td align="left"><b>Champion Name</b></td>
+        <tr><td align="left"><b>Team WON</b></td>
+        <td align="left"><b>Date Played</b></td>
         </tr>';
 
         while($row = mysqli_fetch_array($response)){
           echo '<tr><td align="left">' .
-          $row['id'] . '</td><td align="left">' .
-          $row['championName'] . '</td><td align="left">' ;
+          $row['teamWon'] . '</td><td align="left">' .
+          $row['datePlayed'] . '</td><td align="left">' ;
           echo '</tr>';
         }
         echo '</table>';

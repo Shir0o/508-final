@@ -29,32 +29,31 @@
       session_start();
       $username = $_SESSION["name"];
 
-      $query = "SELECT id, championName
-      FROM compose
-      WHERE id = 1
-      ORDER BY id";
-
-
+      $query = "SELECT *
+      FROM MATCHES
+      WHERE modes = 'Summoner\'s Rift'
+      LIMIT 20";
 
       $response = @mysqli_query($db, $query);
 
-
       if ($response){
-        echo 'Your team composition';
+        echo '<b>All games recorded for summoners rift</b>';
         echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>GAME ID</b></td>
-        <td align="left"><b>Champion Name</b></td>
+        <tr><td align="left"><b>Date Played</b></td>
+        <td align="left"><b>Match Length</b></td>
+        <td align="left"><b>Game Mode</b></td>
+
         </tr>';
 
         while($row = mysqli_fetch_array($response)){
           echo '<tr><td align="left">' .
-          $row['id'] . '</td><td align="left">' .
-          $row['championName'] . '</td><td align="left">' ;
+          $row['datePlayed'] . '</td><td align="left">' .
+          $row['matchLength'] . '</td><td align="left">' .
+          $row['modes'] . '</td><td align="left">';
+
           echo '</tr>';
         }
         echo '</table>';
-
-
       }
       else{
         echo "couldn't issue query";

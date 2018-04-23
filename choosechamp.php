@@ -1,4 +1,4 @@
-<html lang="en">
+css/<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -25,7 +25,10 @@
     <div class="container2">
       <div class="username">
         <img src="images/lolstats.jpg">
+        <?php
+          if
         <form action="mainmenu.php" method="post">
+        ?>
           Enter your Username: <input name="name" type="text" class="nameinput">
           <input type="submit" class="swagButton">
         </form>

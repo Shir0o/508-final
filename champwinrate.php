@@ -29,32 +29,34 @@
       session_start();
       $username = $_SESSION["name"];
 
-      $query = "SELECT id, championName
-      FROM compose
-      WHERE id = 1
-      ORDER BY id";
-
-
+      $query = "SELECT playerName, championName, (numWon / numPlayed) * 100 AS 'Champion win rate'
+      FROM (SELECT playerName, championName, COUNT(id) AS 'numPlayed'
+      FROM COMPOSE
+      GROUP BY playerName, championName) played NATURAL JOIN (SELECT playerName, championName, COUNT(p.id) AS 'numWon'
+      FROM PLAY p, COMPOSE c
+      WHERE p.teamWon = c.id AND playerName = '$username'
+      GROUP BY playerName, championName) won";
 
       $response = @mysqli_query($db, $query);
 
-
       if ($response){
-        echo 'Your team composition';
+        echo '<b>Champions winrate</b>';
         echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>GAME ID</b></td>
+        <tr><td align="left"><b>Player Name</b></td>
         <td align="left"><b>Champion Name</b></td>
+        <td align="left"><b>Percentage of wins</b></td>
+
         </tr>';
 
         while($row = mysqli_fetch_array($response)){
           echo '<tr><td align="left">' .
-          $row['id'] . '</td><td align="left">' .
-          $row['championName'] . '</td><td align="left">' ;
+          $row['playerName'] . '</td><td align="left">' .
+          $row['championName'] . '</td><td align="left">' .
+          $row['Champion win rate'] . '</td><td align="left">' . '%';
+
           echo '</tr>';
         }
         echo '</table>';
-
-
       }
       else{
         echo "couldn't issue query";

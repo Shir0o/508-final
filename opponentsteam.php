@@ -30,31 +30,30 @@
       $username = $_SESSION["name"];
 
       $query = "SELECT id, championName
-      FROM compose
-      WHERE id = 1
-      ORDER BY id";
+      FROM PLAY NATURAL JOIN COMPOSE
+      WHERE id != '1'
 
-
+      ORDER BY datePlayed
+      LIMIT 20";
 
       $response = @mysqli_query($db, $query);
 
-
       if ($response){
-        echo 'Your team composition';
+        echo '<b>Opponent\'s team</b>';
         echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>GAME ID</b></td>
-        <td align="left"><b>Champion Name</b></td>
+        <tr><td align="left"><b>id</b></td>
+        <td align="left"><b>championName</b></td>
+
         </tr>';
 
         while($row = mysqli_fetch_array($response)){
           echo '<tr><td align="left">' .
           $row['id'] . '</td><td align="left">' .
-          $row['championName'] . '</td><td align="left">' ;
+          $row['championName'] . '</td><td align="left">';
+
           echo '</tr>';
         }
         echo '</table>';
-
-
       }
       else{
         echo "couldn't issue query";

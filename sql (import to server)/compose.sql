@@ -1,0 +1,54 @@
+INSERT INTO COMPOSE VALUES('Julien', 1, 'Riven', 'Top');
+INSERT INTO COMPOSE VALUES('Grig1', 1, 'Janna', 'Support');
+INSERT INTO COMPOSE VALUES('TSM Zven', 1, 'Fiora', 'Top');
+INSERT INTO COMPOSE VALUES('L 5 22 9', 1, 'Irelia', 'Top');
+INSERT INTO COMPOSE VALUES('Neøø', 1, 'Ahri', 'Mid');
+INSERT INTO COMPOSE VALUES('Macotoˉ', 2, 'Akali', 'Jungle');
+INSERT INTO COMPOSE VALUES('Winter', 2, 'Ashe', 'Adc');
+INSERT INTO COMPOSE VALUES('Desired Game', 2, 'Jinx', 'Adc');
+INSERT INTO COMPOSE VALUES('Liquid Impact', 2, 'Karma', 'Support');
+INSERT INTO COMPOSE VALUES('HotGuy6Pack', 2, 'Katarina', 'Mid');
+
+INSERT INTO COMPOSE VALUES('Julien', 3, 'Riven', 'Top');
+INSERT INTO COMPOSE VALUES('Grig1', 3, 'Janna', 'Support');
+INSERT INTO COMPOSE VALUES('TSM Zven', 3, 'Fiora', 'Top');
+INSERT INTO COMPOSE VALUES('L 5 22 9', 3, 'Irelia', 'Top');
+INSERT INTO COMPOSE VALUES('Neøø', 3, 'Ahri', 'Mid');
+INSERT INTO COMPOSE VALUES('Macotoˉ', 4, 'Akali', 'Jungle');
+INSERT INTO COMPOSE VALUES('Winter', 4, 'Ashe', 'Adc');
+INSERT INTO COMPOSE VALUES('Desired Game', 4, 'Jinx', 'Adc');
+INSERT INTO COMPOSE VALUES('Liquid Impact', 4, 'Karma', 'Support');
+INSERT INTO COMPOSE VALUES('HotGuy6Pack', 4, 'Katarina', 'Mid');
+
+INSERT INTO COMPOSE VALUES('Julien', 5, 'Riven', 'Top');
+INSERT INTO COMPOSE VALUES('Grig1', 5, 'Janna', 'Support');
+INSERT INTO COMPOSE VALUES('TSM Zven', 5, 'Fiora', 'Top');
+INSERT INTO COMPOSE VALUES('L 5 22 9', 5, 'Irelia', 'Top');
+INSERT INTO COMPOSE VALUES('Neøø', 5, 'Ahri', 'Mid');
+INSERT INTO COMPOSE VALUES('Macotoˉ', 6, 'Akali', 'Jungle');
+INSERT INTO COMPOSE VALUES('Winter', 6, 'Ashe', 'Adc');
+INSERT INTO COMPOSE VALUES('Desired Game', 6, 'Jinx', 'Adc');
+INSERT INTO COMPOSE VALUES('Liquid Impact', 6, 'Karma', 'Support');
+INSERT INTO COMPOSE VALUES('HotGuy6Pack', 6, 'Katarina', 'Mid');
+
+INSERT INTO COMPOSE VALUES('Julien', 7, 'Riven', 'Top');
+INSERT INTO COMPOSE VALUES('Grig1', 7, 'Janna', 'Support');
+INSERT INTO COMPOSE VALUES('TSM Zven', 7, 'Fiora', 'Top');
+INSERT INTO COMPOSE VALUES('L 5 22 9', 7, 'Irelia', 'Top');
+INSERT INTO COMPOSE VALUES('Neøø', 7, 'Ahri', 'Mid');
+INSERT INTO COMPOSE VALUES('Macotoˉ', 8, 'Akali', 'Jungle');
+INSERT INTO COMPOSE VALUES('Winter', 8, 'Ashe', 'Adc');
+INSERT INTO COMPOSE VALUES('Desired Game', 8, 'Jinx', 'Adc');
+INSERT INTO COMPOSE VALUES('Liquid Impact', 8, 'Karma', 'Support');
+INSERT INTO COMPOSE VALUES('HotGuy6Pack', 8, 'Katarina', 'Mid');
+
+INSERT INTO COMPOSE VALUES('Julien', 9, 'Riven', 'Top');
+INSERT INTO COMPOSE VALUES('Grig1', 9, 'Janna', 'Support');
+INSERT INTO COMPOSE VALUES('TSM Zven', 9, 'Fiora', 'Top');
+INSERT INTO COMPOSE VALUES('L 5 22 9', 9, 'Irelia', 'Top');
+INSERT INTO COMPOSE VALUES('Neøø', 9, 'Ahri', 'Mid');
+INSERT INTO COMPOSE VALUES('Macotoˉ', 10, 'Akali', 'Jungle');
+INSERT INTO COMPOSE VALUES('Winter', 10, 'Ashe', 'Adc');
+INSERT INTO COMPOSE VALUES('Desired Game', 10, 'Jinx', 'Adc');
+INSERT INTO COMPOSE VALUES('Liquid Impact', 10, 'Karma', 'Support');
+INSERT INTO COMPOSE VALUES('HotGuy6Pack', 10, 'Katarina', 'Mid');

@@ -1,0 +1,78 @@
+
+.swagButton1, .swagButton2, .swagButton3, .swagButton4, .swagButton5, .swagButton6, .swagButton7, .swagButton8, .swagButton9, .swagButton10, .swagButton11{
+  background:color:red;
+  color: white;
+  font-family: "proxima nova";
+  font-weight: 100;
+  font-size: 18px;
+  align-items: center;
+  border: solid 2px #55d6aa;
+  border-radius: 50px;
+  padding: 5px 20px;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+
+}
+
+.swagButton1:hover, .swagButton2:hover, .swagButton3:hover,.swagButton4:hover, .swagButton5:hover, .swagButton6:hover,.swagButton7:hover, .swagButton8:hover, .swagButton9:hover,.swagButton10:hover, .swagButton11:hover{
+  background-color:#55d6aa;
+  color: #fff;
+}
+
+
+.swagButton1, .swagButton2, .swagButton3, .swagButton4, .swagButton5, .swagButton6, .swagButton7, .swagButton8, .swagButton9, .swagButton10, .swagButton11{
+	float:left;
+	
+}
+
+
+.swagButton1 {
+	margin-top:30px;
+	margin-left: 550px;
+	margin-right: 40px;
+}
+.swagButton2 {
+	margin-top: 30px;
+	margin-left: 780px;
+	margin-right: 40px;
+}
+.swagButton3 {
+	margin-top: 100px;
+	margin-left: -255px;
+	margin-right: 40px;
+}
+.swagButton4 {
+	margin-top: 40px;
+	margin-left: 750px;
+}
+.swagButton5 {
+	margin-top: 115px;
+	margin-left: -250px;
+}
+.swagButton6 {
+	margin-top: 190px;
+	margin-left: -200px;
+}
+.swagButton7 {
+	margin-top: 260px;
+	margin-right: 40px;
+	margin-left: -200px;
+
+}
+.swagButton8 {
+	margin-top: 330px;
+	margin-right: 40px;
+	margin-left: -260px;
+}
+.swagButton9 {
+	margin-top: 400px;
+	margin-left: -230px;
+}
+.swagButton10 {
+	margin-top: 490px;
+	margin-left: -200px;
+}
+.swagButton11 {
+	margin-top: 600px;
+	margin-left: -170px;
+}

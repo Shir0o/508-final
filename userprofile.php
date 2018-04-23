@@ -13,7 +13,12 @@
           <div class="container2">
             <div class="header2">
             <header>
-              <h1> User-Profile </h1>
+              <h1> <?php
+                  require_once('connect.php');
+                  $username = $_POST["name"];
+                  echo "Hello " . $username. "!";
+                  ?>
+                </h1>
             </header>
           </div>
             <div class="banner">
@@ -23,8 +28,50 @@
           <div class="content">
             <p>
             <?php
+                require_once('connect.php');
                 $username = $_POST["name"];
-                echo "Hello " . $username;
+                
+
+                $query = "SELECT playerName, datePlayed, rating
+                          FROM info
+                          WHERE playerName = '$username'";
+
+                $response = @mysqli_query($db, $query);
+
+                if ($response){
+                  echo '<table align="left" cellspacing="5" cellpadding="8">
+
+                  <tr><td align="left"><b>Player Name</b></td>
+                  <td align="left"><b>Date Played</b></td>
+                  <td align="left"><b>Rating</b></td>
+                  </tr>';
+
+
+                  while($row = mysqli_fetch_array($response)){
+                    echo '<tr><td align="left">' .
+                    $row['playerName'] . '</td><td align="left">' .
+
+                    $row['datePlayed'] . '</td><td align="left">' .
+
+                    $row['rating'] . '</td><td align="left">';
+
+;
+
+                    echo '</tr>';
+
+                  }
+
+                  echo '</table>';
+
+                }
+
+                else{
+                  echo "couldn't issue query";
+
+                  echo mysqli_error($db);
+                }
+
+                mysqli_close($db);
             ?>
           </p>
           </div>

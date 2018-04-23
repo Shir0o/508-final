@@ -43,7 +43,7 @@ body {
    background: #fafafa;
 */
 
-position: relative;
+ position: relative;
  margin-top: -180px;
  /* negative value of footer height */
  height: 180px;
@@ -56,7 +56,7 @@ position: relative;
   width: 100%;
   z-index: 10;
   position:fixed;
-  background: #fafafa;
+  background-color: #55d6aa;
 }
 .container2, .banner, .content{
   text-align: center;

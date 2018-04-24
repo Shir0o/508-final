@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/other_page.css">
+  <link rel="stylesheet" href="css/home_page.css">
   <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7CRaleway:300,400" rel="stylesheet">
   <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
   <title>League Stats</title>
@@ -23,33 +24,35 @@
   </header>
 
   <div class="container2">
-    <p>
-      <?php
-      require_once('connect.php');
-      $query = "SELECT playerName
-      FROM info";
+    <?php
+    require_once('connect.php');
+    session_start();
+    $username = $_POST["name"];
+    $_SESSION['name'] = $username;
+    $matches = $_POST["matches"];
+    $_SESSION['matches'] = $matches;
+    $wins = $_POST["wins"];
+    $_SESSION['wins'] = $wins;
 
-      $response = @mysqli_query($db, $query);
+    if (is_null($username)){
+      echo 'try again!';
+    }
 
-      if ($response){
-        echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>Player Name</b></td>
-        </tr>';
+    $query = "INSERT INTO PLAYERS VALUES('$username', '$wins', '$matches')";
 
-        while($row = mysqli_fetch_array($response)){
-          echo '<tr><td align="left">' .
-          $row['playerName'] . '</td><td align="left">';
-          echo '</tr>';
-        }
-        echo '</table>';
-      }
-      else{
-        echo "couldn't issue query";
-        echo mysqli_error($db);
-      }
-      mysqli_close($db);
-      ?>
-    </p>
+    $response = @mysqli_query($db, $query);
+
+    if ($response){
+    echo 'Player added';
+    }
+    else{
+      echo 'Error, please try again!';
+    }
+        ?>
+
+
+
+
   </div>
   <footer class="footer">
     <p>Copyright © 2018 LOLSTATS</p>

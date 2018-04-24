@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/other_page.css">
+  <link rel="stylesheet" href="css/home_page.css">
   <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7CRaleway:300,400" rel="stylesheet">
   <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
   <title>League Stats</title>
@@ -23,33 +24,13 @@
   </header>
 
   <div class="container2">
-    <p>
-      <?php
-      require_once('connect.php');
-      $query = "SELECT playerName
-      FROM info";
-
-      $response = @mysqli_query($db, $query);
-
-      if ($response){
-        echo '<table align="left" cellspacing="5" cellpadding="8">
-        <tr><td align="left"><b>Player Name</b></td>
-        </tr>';
-
-        while($row = mysqli_fetch_array($response)){
-          echo '<tr><td align="left">' .
-          $row['playerName'] . '</td><td align="left">';
-          echo '</tr>';
-        }
-        echo '</table>';
-      }
-      else{
-        echo "couldn't issue query";
-        echo mysqli_error($db);
-      }
-      mysqli_close($db);
-      ?>
-    </p>
+    <form action="playeradded.php" method="post">
+      Add a New player
+      <p> Enter your Username: <input name="name" type="text" class="nameinput"></p>
+      <p> Enter Total Matches: <input name="matches" type="number" class="nameinput"></p>
+      <p> Enter Total Wins: <input name="wins" type="number" class="nameinput"></p>
+      <input type="submit" name="submit" class="swagButton" value="send">
+    </form>
   </div>
   <footer class="footer">
     <p>Copyright © 2018 LOLSTATS</p>

@@ -29,6 +29,7 @@
           Enter your Username: <input name="name" type="text" class="nameinput">
           <input type="submit" class="swagButton">
         </form>
+        <a href = "addplayer.php">Don't have an account in our database?</a>
       </div>
     </div>
 
